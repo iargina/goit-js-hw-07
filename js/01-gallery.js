@@ -28,14 +28,13 @@ const galleryMass = galleryItems
 galleryList.insertAdjacentHTML("beforeend", galleryMass);
 
 const photoOpen = (event) => {
+  if (event.target.nodeName !== "IMG") {
+    return;
+  }
 
-    if (event.target.nodeName !== "IMG") {
-        return;
-      }
-
+  console.log(event.target);
   const fullSize = event.target.closest(`.gallery__link`).getAttribute(`href`);
   console.log(fullSize);
-
   basicLightbox
     .create(
       `
